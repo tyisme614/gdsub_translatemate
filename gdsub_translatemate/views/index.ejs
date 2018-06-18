@@ -77,7 +77,7 @@
     var path = window.location.pathname.split('\/');
     console.log('last element:' + path[path.length - 1]);
     console.log('path:' + window.location.pathname);
-    var index = 1;
+    var index = path[path.length - 1];
     function next(){
         index++;
         if(index <= 39){
