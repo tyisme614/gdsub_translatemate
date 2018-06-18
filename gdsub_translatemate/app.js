@@ -78,7 +78,7 @@ app.get('/analyze/:videoid', function(req, res){
                 console.log('worksheet created, title:' + sheet.title);
                 worksheets[videoid] = sheet;
                 console.log('add analyzed subtitle data into spreadsheet');
-                for(var i=0; i<sentence_blocks.length; i++){
+                for(var i=0; i< sentence_blocks.length; i++){
                     var block = sentence_blocks[i];
                     var item = {};
                     item.starttime = block.starttime;

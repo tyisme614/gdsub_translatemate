@@ -2,9 +2,6 @@
 const rl = require('linebyline');
 const fs = require('fs');
 
-const projectID = 'GLocalizationProjects';
-
-
 //patterns
 //start time
 const pattern_start_time = /^[0-9][0-9]\:[0-9][0-9]\:[0-9][0-9]\,[0-9][0-9][0-9]/;
@@ -176,7 +173,7 @@ function traverse(videoid, file,  callback){
         if(typeof(callback) != 'undefined' && callback != null){
             callback(videoid, sentence_blocks);
         }
-        callback(videoid);
+
         stateEmitter.emit(1001, videoid, subtitle_blocks, sentence_blocks);
         blockcount = 0;
         linecount = 0;

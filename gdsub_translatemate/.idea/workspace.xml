@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9d71fc79-7207-40ad-b1d2-fc1c9fcaea3f" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utilities.js" beforeDir="false" afterPath="$PROJECT_DIR$/utilities.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -18,11 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="385">
-              <caret line="30" column="37" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
+            <state relative-caret-position="427">
+              <caret line="80" column="32" selection-start-line="80" selection-start-column="32" selection-end-line="80" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -36,11 +36,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="utilities.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="utilities.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/utilities.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="792">
-              <caret line="36" column="48" selection-start-line="36" selection-start-column="48" selection-end-line="36" selection-end-column="48" />
+            <state relative-caret-position="230">
+              <caret line="175" column="8" selection-start-line="175" selection-start-column="8" selection-end-line="175" selection-end-column="8" />
             </state>
           </provider>
         </entry>
@@ -52,6 +52,7 @@
       <find>token</find>
       <find>last_index</find>
       <find>observer</find>
+      <find>sentence_blocks</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -63,9 +64,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/utilities.js" />
         <option value="$PROJECT_DIR$/bin/www" />
         <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/utilities.js" />
       </list>
     </option>
   </component>
@@ -153,7 +154,7 @@
       <updated>1529203448691</updated>
       <workItem from="1529203450341" duration="9462000" />
       <workItem from="1529308870073" duration="144000" />
-      <workItem from="1529309864408" duration="192000" />
+      <workItem from="1529309864408" duration="2026000" />
     </task>
     <task id="LOCAL-00001" summary="changed to default port to 8088">
       <created>1529309969000</created>
@@ -162,11 +163,25 @@
       <option name="project" value="LOCAL" />
       <updated>1529309969000</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="use gcs auth file">
+      <created>1529310085417</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1529310085417</updated>
+    </task>
+    <task id="LOCAL-00003" summary="use gcs auth file">
+      <created>1529328492131</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1529328492131</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9798000" />
+    <option name="totallyTimeSpent" value="11632000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -174,15 +189,16 @@
     <layout>
       <window_info content_ui="combo" id="Project" order="2" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="10" />
+      <window_info active="true" anchor="bottom" id="Messages" visible="true" weight="0.32955715" />
       <window_info anchor="bottom" id="Docker" order="0" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.5005952" side_tool="true" visible="true" weight="0.32955715" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="4" sideWeight="0.49940476" visible="true" weight="0.32955715" />
+      <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.5005952" side_tool="true" weight="0.32955715" />
+      <window_info anchor="bottom" id="Version Control" order="4" sideWeight="0.49940476" weight="0.32955715" />
       <window_info id="npm" order="0" side_tool="true" weight="0.3297619" />
       <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49940476" weight="0.8115183" />
       <window_info id="Structure" order="3" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="1" weight="0.32984293" />
       <window_info id="Favorites" order="1" side_tool="true" />
-      <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
+      <window_info anchor="bottom" id="Debug" order="7" weight="0.39958805" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -200,7 +216,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="changed to default port to 8088" />
-    <option name="LAST_COMMIT_MESSAGE" value="changed to default port to 8088" />
+    <MESSAGE value="use gcs auth file" />
+    <option name="LAST_COMMIT_MESSAGE" value="use gcs auth file" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app.js">
@@ -245,13 +262,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/utilities.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="792">
-          <caret line="36" column="48" selection-start-line="36" selection-start-column="48" selection-end-line="36" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bin/www">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
@@ -261,8 +271,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="30" column="37" selection-start-line="30" selection-start-column="37" selection-end-line="30" selection-end-column="37" />
+        <state relative-caret-position="427">
+          <caret line="80" column="32" selection-start-line="80" selection-start-column="32" selection-end-line="80" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/utilities.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="230">
+          <caret line="175" column="8" selection-start-line="175" selection-start-column="8" selection-end-line="175" selection-end-column="8" />
         </state>
       </provider>
     </entry>
