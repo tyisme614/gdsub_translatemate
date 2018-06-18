@@ -21,6 +21,7 @@ const auth_json = 'GLocalizationProjects-4f795dcb895a.json';
 const db_analyze = new spreadsheet('1CGhrERVtGU3DYoALHj75SI1A-mW75hoUP3f9pp_wbp8');
 const db_subtitle = new spreadsheet('1N84ZWXOTmwSwcjaX-5-Ooiy0qQWWzVJFPBujiRdb-sA');
 
+var worksheets = [];
 
 console.log('initialize db_analyze');
 async.series([
@@ -67,11 +68,36 @@ app.get('/analyze/:videoid', function(req, res){
     gdsub_util.analyzeSubtitle(videoid, filename, (videoid, sentence_blocks)=>{
       console.log('subtitle analysis completed.video id:' + videoid);
       console.log('inserting analyzed data into spreadsheet');
-      res.write('subtitle analysis completed.video id:' + videoid);
-      res.end();
+        db_analyze.addWorksheet({
+            title:videoid,
+            headers:['starttime', 'endtime', 'english', 'chinese', 'translator', 'edittime', 'relatedsubs']
+        }, function(err, sheet){
+            if(err){
+                console.log('encountered error while creating worksheet, err:' + err);
+            }else{
+                console.log('worksheet created, title:' + sheet.title);
+                worksheets[videoid] = sheet;
+                console.log('add analyzed subtitle data into spreadsheet');
+                for(var i=0; i<sentence_blocks.length; i++){
+                    var block = sentence_blocks[i];
+                    var item = {};
+                    item.starttime = block.starttime;
+                    item.endtime = block.endtime;
+                    item.english = block.sentence;
+                    item.chinese = '';
+                    item.translator = '';
+                    item.edittime = new Date().toString();
+                    item.relatedsubs = block.sub_index_arr;
+                    console.log('add item no.' + i + ' into spreadsheet ' + sheet.title);
+                    addRowST(sheet, item);
+
+                }
+
+            }
+        });
     });
     res.write('request received, video id:' + videoid);
-    res.status(200);
+    res.status(200).end();
 
 
 });
@@ -94,5 +120,20 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+//update spreadsheet
+function addRowST(sheet, row){
+    sheet.addRow(row, function(err){
+        if(err){
+            console.log(err);
+            console.log(row);
+            console.log('add the row data after 6 seconds');
+            setTimeout(function(){
+                addRowST(sheet, row);
+            }, 6000)
+        }
+
+    });
+}
 
 module.exports = app;
