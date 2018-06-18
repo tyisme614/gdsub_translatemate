@@ -4,6 +4,7 @@
     <list default="true" id="9d71fc79-7207-40ad-b1d2-fc1c9fcaea3f" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utilities.js" beforeDir="false" afterPath="$PROJECT_DIR$/utilities.js" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -20,8 +21,8 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="423">
-              <caret line="142" column="39" selection-start-line="142" selection-start-column="39" selection-end-line="142" selection-end-column="39" />
+            <state relative-caret-position="547">
+              <caret line="150" column="28" lean-forward="true" selection-start-line="150" selection-start-column="28" selection-end-line="150" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -38,8 +39,8 @@
       <file leaf-file-name="utilities.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/utilities.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="14" column="46" lean-forward="true" selection-start-line="12" selection-end-line="14" selection-end-column="46" />
+            <state relative-caret-position="619">
+              <caret line="232" column="11" selection-start-line="232" selection-start-column="11" selection-end-line="232" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -153,7 +154,7 @@
       <updated>1529203448691</updated>
       <workItem from="1529203450341" duration="9462000" />
       <workItem from="1529308870073" duration="144000" />
-      <workItem from="1529309864408" duration="5435000" />
+      <workItem from="1529309864408" duration="5953000" />
     </task>
     <task id="LOCAL-00001" summary="changed to default port to 8088">
       <created>1529309969000</created>
@@ -218,11 +219,25 @@
       <option name="project" value="LOCAL" />
       <updated>1529332515054</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="fixed syntax error">
+      <created>1529332588466</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1529332588466</updated>
+    </task>
+    <task id="LOCAL-00011" summary="fixed syntax error">
+      <created>1529332660993</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1529332660993</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15041000" />
+    <option name="totallyTimeSpent" value="15559000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -316,15 +331,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/utilities.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="14" column="46" lean-forward="true" selection-start-line="12" selection-end-line="14" selection-end-column="46" />
+        <state relative-caret-position="619">
+          <caret line="232" column="11" selection-start-line="232" selection-start-column="11" selection-end-line="232" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="423">
-          <caret line="142" column="39" selection-start-line="142" selection-start-column="39" selection-end-line="142" selection-end-column="39" />
+        <state relative-caret-position="547">
+          <caret line="150" column="28" lean-forward="true" selection-start-line="150" selection-start-column="28" selection-end-line="150" selection-end-column="28" />
         </state>
       </provider>
     </entry>

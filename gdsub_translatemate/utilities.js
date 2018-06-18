@@ -228,6 +228,10 @@ function convertTS2TM(timestamp){
     return total;
 }
 
+//export function
+exports.convertTimeToTimestamp = function(tm){
+    return convertTM2TS(tm);
+}
 //convert plain time value to formatted timestamp
 function convertTM2TS(tm){
 

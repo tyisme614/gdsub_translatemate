@@ -149,8 +149,15 @@ app.get('/translate/:videoid/:index', function(req, res){
         }, function( err, rows ){
             console.log('rows:' + rows.length);
             console.log('result:' + JSON.stringify(rows[0]));
+            var data = {};
+            data.sentence = rows[0].english;
+            data.start = gdsub_util.convertTimeToTimestamp(rows[0].starttime);
+            data.end = gdsub_util.convertTimeToTimestamp(rows[0].endtime);
+
             res.status(200);
-            res.send(JSON.stringify(rows[0]));
+            res.send('sentence:' + data.sentence
+                    + '\nstart:' + data.start
+                    + '\nend:' + data.end);
             res.end();
         });
     }else{
