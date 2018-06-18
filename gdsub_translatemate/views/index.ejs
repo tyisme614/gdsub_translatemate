@@ -77,12 +77,14 @@
 
     function next(){
         var oReq = new XMLHttpRequest();
+        oReq.responseType = 'document';
         oReq.open("GET", "http://35.194.218.130:8088/translate/ITS9dtmduJQ/3");
         oReq.send();
     }
 
     function previous(){
         var oReq = new XMLHttpRequest();
+        oReq.responseType = 'document';
         oReq.open("GET", "http://35.194.218.130:8088/translate/ITS9dtmduJQ/1");
         oReq.send();
     }
