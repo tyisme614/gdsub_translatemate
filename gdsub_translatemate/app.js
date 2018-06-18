@@ -141,7 +141,7 @@ app.get('/analyze/:videoid', function(req, res){
 //request subtitle sentence
 app.get('/translate/:videoid/:index', function(req, res){
     console.log('videoid:' + req.params.videoid + ' index:' + req.params.index);
-    var sheet = worksheets[req.param.videoid];
+    var sheet = worksheets[req.params.videoid];
     if(typeof(sheet) != 'undefined' && sheet != null){
         sheet.getRows({
             offset: req.param.index,
