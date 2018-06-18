@@ -13,8 +13,8 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
 //authentication for Google Cloud Platform
-//const base_path = '/home/yuan/auth/';
-const base_path_local = '/Users/yuan/Developer/GDSub/';
+const base_path = '/home/yuan/auth/';
+//const base_path_local = '/Users/yuan/Developer/GDSub/';
 //GLocalization
 const auth_json = 'GLocalizationProjects-4f795dcb895a.json';
 //spreadsheet
@@ -28,7 +28,7 @@ async.series([
         // see notes below for authentication instructions!
 
         console.log('authenticating...');
-        var creds = require(base_path_local + auth_json);
+        var creds = require(base_path + auth_json);
         db_analyze.useServiceAccountAuth(creds, step);
     },
     function getInfoAndWorksheets(step) {
