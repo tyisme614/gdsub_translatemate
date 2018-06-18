@@ -37,10 +37,13 @@
     <div class="field">
       <li>
         <div class="field">
-          <input type="text" name="english" id="english" placeholder="English" value=<%=english %> >
+          <div class="field">
+            <textarea name="message" id="english" placeholder="english" rows="3" cols="80" disabled><%=english %></textarea>
+          </div>
+
         </div>
         <div class="field">
-          <input type="text" name="chinese" id="chinese" placeholder="中文翻译"  value=<%=chinese %>>
+          <textarea name="message" id="chinese" placeholder="中文翻译" rows="3" cols="80" ><%=chinese %></textarea>
         </div>
         <div class="field">
           <input type="text" name="translator" id="translator" placeholder="译者" value=<%=translator %>  >
