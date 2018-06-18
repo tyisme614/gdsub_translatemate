@@ -96,7 +96,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//custom routes
+//request subtitle analyze
 app.get('/analyze/:videoid', function(req, res){
     console.log('video id:' + req.params.videoid);
     var videoid = req.params.videoid;
@@ -135,6 +135,28 @@ app.get('/analyze/:videoid', function(req, res){
     res.write('request received, video id:' + videoid);
     res.status(200).end();
 
+
+});
+
+//request subtitle sentence
+app.get('/translate/:videoid/:index', function(req, res){
+    console.log('videoid:' + req.param.videoid + ' index:' + req.param.index);
+    var sheet = worksheets[req.param.videoid];
+    if(typeof(sheet) != 'undefined' && sheet != null){
+        sheet.getRows({
+            offset: req.param.index,
+            limit: 1
+        }, function( err, rows ){
+            console.log('rows:' + rows.length);
+            console.log('result:' + JSON.stringify(rows[0]));
+            res.statusCode(200);
+            res.send(JSON.stringify(rows[0]));
+            res.end();
+        });
+    }else{
+        res.statusCode(404);
+        res.send('subtitle not found');
+    }
 
 });
 
