@@ -14,7 +14,7 @@
   <link rel="icon" href="/images/googledev_small.png"/>
   <!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
   <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-  <script src="/socket.io/socket.io.js"></script>
+
   <noscript><link rel="stylesheet" href="/assets/css/noscript.css" /></noscript>
 </head>
 <body class="is-loading">
@@ -74,6 +74,7 @@
         window.addEventListener('load', function() { document.body.className = document.body.className.replace(/\bis-loading\b/, ''); });
         document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
     }
+    console.log('path:' + window.location.pathname);
     var index = 1;
     function next(){
         index++;
