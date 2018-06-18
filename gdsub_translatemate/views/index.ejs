@@ -53,9 +53,9 @@
     </div>
     <div class="field">
       <ul class="actions">
-        <li><a onclick="" class="button">Previous</a></li>
+        <li><a onclick="previous()" class="button">Previous</a></li>
         <li><a onclick="" class="button">Submit</a></li>
-        <li><a onclick="" class="button">Next</a></li>
+        <li><a onclick="next()" class="button">Next</a></li>
       </ul>
     </div>
     <hr />
@@ -75,6 +75,17 @@
         document.body.className += (navigator.userAgent.match(/(MSIE|rv:11\.0)/) ? ' is-ie' : '');
     }
 
+    function next(){
+        var oReq = new XMLHttpRequest();
+        oReq.open("GET", "http://35.194.218.130:8088/translate/ITS9dtmduJQ/3");
+        oReq.send();
+    }
+
+    function previous(){
+        var oReq = new XMLHttpRequest();
+        oReq.open("GET", "http://35.194.218.130:8088/translate/ITS9dtmduJQ/1");
+        oReq.send();
+    }
 
 </script>
 
