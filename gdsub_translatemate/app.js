@@ -153,12 +153,15 @@ app.get('/translate/:videoid/:index', function(req, res){
             data.sentence = rows[0].english;
             data.start = gdsub_util.convertTimeToTimestamp(rows[0].starttime);
             data.end = gdsub_util.convertTimeToTimestamp(rows[0].endtime);
+            data.chinese = rows[0].chinese;
+            data.translator = rows[0].translator;
+            res.render('index',
+                {
+                    english: data.sentence,
+                    chinese: data.chinese,
+                    translator: data.translator
+                });
 
-            res.status(200);
-            res.send('sentence:' + data.sentence
-                    + '\nstart:' + data.start
-                    + '\nend:' + data.end);
-            res.end();
         });
     }else{
         res.status(404);
@@ -166,6 +169,35 @@ app.get('/translate/:videoid/:index', function(req, res){
         res.end();
     }
 
+});
+
+//submit translation
+app.post('/translate/:videoid/:index', function(req, res){
+
+    console.log('content:' + req.body.content);
+    var translation = JSON.parse(req.body.content);
+    console.log('videoid:' + req.params.videoid + ' index:' + req.params.index);
+    var sheet = worksheets[req.params.videoid];
+    if(typeof(sheet) != 'undefined' && sheet != null){
+        sheet.getRows({
+            offset: req.params.index,
+            limit: 1
+        }, function( err, rows ){
+            console.log('rows:' + rows.length);
+            var row = rows[0];
+            row.chinese = translation.chinese;
+            row.translator = translation.translator;
+            row.edittime = new Date().toString();
+            row.save();
+            res.status(200);
+            res.send('translation saved');
+            res.end();
+        });
+    }else{
+        res.status(404);
+        res.send('subtitle not found');
+        res.end();
+    }
 });
 
 app.use('/', indexRouter);
