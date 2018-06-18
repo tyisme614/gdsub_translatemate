@@ -39,7 +39,12 @@ async.series([
                 console.log('encountered error when loading spreadsheet, error:' + err);
             }else{
                 console.log('Loaded doc: '+info.title+' by '+info.author.email);
-
+                var sheets = info.worksheets;
+                for(var i=0; i<sheets.length; i++){
+                    var s = sheets[i];
+                    console.log('adding ' + s.title + ' to local cache');
+                    worksheets[s.title] = s;
+                }
             }
 
             step();
@@ -68,33 +73,32 @@ app.get('/analyze/:videoid', function(req, res){
     gdsub_util.analyzeSubtitle(videoid, filename, (videoid, sentence_blocks)=>{
       console.log('subtitle analysis completed.video id:' + videoid);
       console.log('inserting analyzed data into spreadsheet');
-        db_analyze.addWorksheet({
-            title:videoid,
-            headers:['starttime', 'endtime', 'english', 'chinese', 'translator', 'edittime', 'relatedsubs']
-        }, function(err, sheet){
-            if(err){
-                console.log('encountered error while creating worksheet, err:' + err);
-            }else{
-                console.log('worksheet created, title:' + sheet.title);
-                worksheets[videoid] = sheet;
-                console.log('add analyzed subtitle data into spreadsheet');
-                for(var i=0; i< sentence_blocks.length; i++){
-                    var block = sentence_blocks[i];
-                    var item = {};
-                    item.starttime = block.starttime;
-                    item.endtime = block.endtime;
-                    item.english = block.sentence;
-                    item.chinese = '';
-                    item.translator = '';
-                    item.edittime = new Date().toString();
-                    item.relatedsubs = block.sub_index_arr;
-                    console.log('add item no.' + i + ' into spreadsheet ' + sheet.title);
-                    addRowST(sheet, item);
+      var sheet = worksheets[videoid];
+      if(typeof(sheet) == 'undefined' || sheet == null){
+            console.log('worksheet not exists, add new one');
+          db_analyze.addWorksheet({
+              title:videoid,
+              headers:['starttime', 'endtime', 'english', 'chinese', 'translator', 'edittime', 'relatedsubs']
+          }, function(err, sheet){
+              if(err){
+                  console.log('encountered error while creating worksheet, err:' + err);
+              }else{
+                  console.log('worksheet created, title:' + sheet.title);
+                  worksheets[videoid] = sheet;
+                  postAnalysisData(sheet, sentence_blocks);
 
-                }
+              }
+          });
+      }else{
+          console.log('worksheet already exists, clear legacy data');
+          sheet.clear(function(){
+             sheet.setHeaderRow(['starttime', 'endtime', 'english', 'chinese', 'translator', 'edittime', 'relatedsubs'],
+                 function(){
+                    postAnalysisData(sheet, sentence_blocks);
+                });
+          });
+      }
 
-            }
-        });
     });
     res.write('request received, video id:' + videoid);
     res.status(200).end();
@@ -120,6 +124,25 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+function postAnalysisData(worksheet, blocks){
+    console.log('add analyzed subtitle data into spreadsheet');
+    for(var i=0; i< blocks.length; i++){
+        var block = blocks[i];
+        var item = {};
+        item.starttime = block.starttime;
+        item.endtime = block.endtime;
+        item.english = block.sentence;
+        item.chinese = '';
+        item.translator = '';
+        item.edittime = new Date().toString();
+        item.relatedsubs = block.sub_index_arr;
+        console.log('add item no.' + i + ' into spreadsheet ' + sheet.title);
+        addRowST(worksheet, item);
+
+    }
+}
 
 //update spreadsheet
 function addRowST(sheet, row){
