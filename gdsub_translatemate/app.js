@@ -22,6 +22,7 @@ const db_analyze = new spreadsheet('1CGhrERVtGU3DYoALHj75SI1A-mW75hoUP3f9pp_wbp8
 const db_subtitle = new spreadsheet('1N84ZWXOTmwSwcjaX-5-Ooiy0qQWWzVJFPBujiRdb-sA');
 
 var worksheets = [];
+var block_cache = [];
 
 console.log('initialize db_analyze');
 async.series([
@@ -53,6 +54,36 @@ async.series([
 ]);
 
 
+/**
+ * event handler
+ *
+ */
+const EventEmitter = require('events');
+class customEventEmitter extends EventEmitter{};
+const stateEmitter = new customEventEmitter();
+stateEmitter.on(1001, (sheet, videoid, index)=>{
+        console.log('event handler, index=' + index);
+        var blocks = block_cache[videoid];
+        if(index < blocks.length){
+            var block = blocks[index];
+            var item = {};
+            item.starttime = block.starttime;
+            item.endtime = block.endtime;
+            item.english = block.sentence;
+            item.chinese = '';
+            item.translator = '';
+            item.edittime = new Date().toString();
+            item.relatedsubs = block.sub_index_arr;
+            console.log('add item no.' + index + ' into spreadsheet ' + sheet.title);
+            addRowST(sheet, item, function(){
+                index++;
+                stateEmitter.emit(1001, sheet, videoid, index);
+            });
+        }else{
+            console.log('all data has been added to spreadsheet ');
+        }
+});
+
 var app = express();
 
 // view engine setup
@@ -71,6 +102,7 @@ app.get('/analyze/:videoid', function(req, res){
     var videoid = req.params.videoid;
     var filename = __dirname + '/' + videoid + '.srt';
     gdsub_util.analyzeSubtitle(videoid, filename, (videoid, sentence_blocks)=>{
+        block_cache[videoid] = sentence_blocks;
       console.log('subtitle analysis completed.video id:' + videoid);
       console.log('inserting analyzed data into spreadsheet');
       var sheet = worksheets[videoid];
@@ -85,7 +117,7 @@ app.get('/analyze/:videoid', function(req, res){
               }else{
                   console.log('worksheet created, title:' + sheet.title);
                   worksheets[videoid] = sheet;
-                  postAnalysisData(sheet, sentence_blocks);
+                  stateEmitter.emit(1001, sheet, videoid, 0);
 
               }
           });
@@ -94,7 +126,7 @@ app.get('/analyze/:videoid', function(req, res){
           sheet.clear(function(){
              sheet.setHeaderRow(['starttime', 'endtime', 'english', 'chinese', 'translator', 'edittime', 'relatedsubs'],
                  function(){
-                    postAnalysisData(sheet, sentence_blocks);
+                     stateEmitter.emit(1001, sheet, videoid, 0);
                 });
           });
       }
@@ -145,7 +177,7 @@ function postAnalysisData(worksheet, blocks){
 }
 
 //update spreadsheet
-function addRowST(sheet, row){
+function addRowST(sheet, row, callback){
     sheet.addRow(row, function(err){
         if(err){
             console.log(err);
@@ -154,6 +186,10 @@ function addRowST(sheet, row){
             setTimeout(function(){
                 addRowST(sheet, row);
             }, 6000)
+        }else{
+            if(typeof(callback) != 'undefined' && callback != null){
+                callback();
+            }
         }
 
     });
