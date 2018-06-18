@@ -149,13 +149,14 @@ app.get('/translate/:videoid/:index', function(req, res){
         }, function( err, rows ){
             console.log('rows:' + rows.length);
             console.log('result:' + JSON.stringify(rows[0]));
-            res.statusCode(200);
+            res.status(200);
             res.send(JSON.stringify(rows[0]));
             res.end();
         });
     }else{
-        res.statusCode(404);
+        res.status(404);
         res.send('subtitle not found');
+        res.end();
     }
 
 });
