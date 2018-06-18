@@ -138,7 +138,7 @@ function postAnalysisData(worksheet, blocks){
         item.translator = '';
         item.edittime = new Date().toString();
         item.relatedsubs = block.sub_index_arr;
-        console.log('add item no.' + i + ' into spreadsheet ' + sheet.title);
+        console.log('add item no.' + i + ' into spreadsheet ' + worksheet.title);
         addRowST(worksheet, item);
 
     }
