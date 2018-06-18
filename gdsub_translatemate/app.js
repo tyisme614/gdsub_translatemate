@@ -144,7 +144,7 @@ app.get('/translate/:videoid/:index', function(req, res){
     var sheet = worksheets[req.params.videoid];
     if(typeof(sheet) != 'undefined' && sheet != null){
         sheet.getRows({
-            offset: req.param.index,
+            offset: req.params.index,
             limit: 1
         }, function( err, rows ){
             console.log('rows:' + rows.length);
