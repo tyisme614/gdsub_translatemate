@@ -54,7 +54,7 @@
     <div class="field">
       <ul class="actions">
         <li><a onclick="previous()" class="button">Previous</a></li>
-        <li><a onclick="" class="button">Submit</a></li>
+        <li><a onclick="submit()" class="button">Submit</a></li>
         <li><a onclick="next()" class="button">Next</a></li>
       </ul>
     </div>
@@ -98,6 +98,33 @@
             index = 1;
             console.log('reached first element in document');
         }
+    }
+
+    function submit(){
+        var path = window.location.pathname.split('\/');
+        var index = path[path.length - 1];
+        var videoid = path[path.length - 2];
+        console.log('index=' + index + '  video id=' + videoid);
+
+        var chinese = document.getElementById('chinese').innerText;
+        var translator = document.getElementById('translator').value;
+        console.log('translation:' + translation + '  translator:' + translator);
+
+        var fd = new FormData();
+        fd.append('chinese', chinese);
+        fd.append('translator', translator);
+
+        var url = document.location.origin + '/' + videoid + '/' + index;
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', url, true);
+        xhr.onreadystatechange = function(){
+            if(xhr.readystate == 4 && xhr.status == 200){
+                console.log('response:' + xhr.responseText);
+            }
+        }
+
+        xhr.send();
+
     }
 
 </script>
