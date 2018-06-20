@@ -176,7 +176,7 @@ app.get('/translate/:videoid/:index', function(req, res){
 app.post('/translate/:videoid/:index', function(req, res){
 
     console.log('content:' + JSON.stringify(req.body));
-    var translation = JSON.parse(req.body);
+    var translation = req.body;
 
     console.log('videoid:' + req.params.videoid + ' index:' + req.params.index);
     var sheet = worksheets[req.params.videoid];
