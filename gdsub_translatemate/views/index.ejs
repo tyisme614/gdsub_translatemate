@@ -81,22 +81,8 @@
     function next(){
         index++;
         if(index <= 39){
-            var path = window.location.pathname.split('\/');
-            var index = path[path.length - 1];
-            var videoid = path[path.length - 2];
-            var url = document.location.origin + '/translate/' + videoid + '/' + index;
-            var xhr = new XMLHttpRequest();
-            xhr.open('GET', url, true);
-            xhr.onreadystatechange = function(){
-                if(xhr.readyState == 4 && xhr.status == 200){
-                    console.log('response text:' + xhr.responseText);
-                }
-            }
 
-            xhr.send();
-
-
-           //window.location.href = "http://35.194.218.130:8088/translate/ITS9dtmduJQ/" + index;
+           window.location.href = "http://35.194.218.130:8088/translate/ITS9dtmduJQ/" + index;
         }else{
             index = 39;
             console.log('reached last element in document');
