@@ -106,12 +106,12 @@
         var videoid = path[path.length - 2];
         console.log('index=' + index + '  video id=' + videoid);
 
-        var chinese = document.getElementById('chinese').innerHTML;
+        var chinese = document.getElementById('chinese').value;
         var translator = document.getElementById('translator').value;
         console.log('translation:' + chinese + '  translator:' + translator);
 
         var fd = new FormData();
-        fd.append('chinese', chinese);
+        fd.append('chinese', '测试POST中文翻译');
         fd.append('translator', translator);
 
         var url = document.location.origin + '/translate/' + videoid + '/' + index;
