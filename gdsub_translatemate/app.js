@@ -156,12 +156,15 @@ app.get('/translate/:videoid/:index', function(req, res){
             data.end = gdsub_util.convertTimeToTimestamp(rows[0].endtime);
             data.chinese = rows[0].chinese;
             data.translator = rows[0].translator;
-            res.render('index',
-                {
-                    english: data.sentence,
-                    chinese: data.chinese,
-                    translator: data.translator
-                });
+            res.status(200);
+            res.send(JSON.stringify(data));
+            res.end();
+            // res.render('index',
+            //     {
+            //         english: data.sentence,
+            //         chinese: data.chinese,
+            //         translator: data.translator
+            //     });
 
         });
     }else{
