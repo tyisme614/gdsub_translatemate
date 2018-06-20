@@ -122,8 +122,8 @@
                 console.log('response:' + xhr.responseText);
             }
         }
-
-        xhr.send(fd);
+        console.log('sending json data:' + JSON.stringify(fd));
+        xhr.send(JSON.stringify(fd));
 
     }
 

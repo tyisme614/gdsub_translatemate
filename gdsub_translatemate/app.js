@@ -1,7 +1,7 @@
 //utilities
 const createError = require('http-errors');
 const express = require('express');
-var bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 //google spreadsheet
 const spreadsheet = require('google-spreadsheet');
 const path = require('path');
@@ -93,7 +93,7 @@ app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -175,7 +175,7 @@ app.get('/translate/:videoid/:index', function(req, res){
 //submit translation
 app.post('/translate/:videoid/:index', function(req, res){
 
-    console.log('content:' + JSON.stringify(req.body));
+    console.log('content:' + req.body);
     var translation = JSON.parse(req.body);
 
     console.log('videoid:' + req.params.videoid + ' index:' + req.params.index);
