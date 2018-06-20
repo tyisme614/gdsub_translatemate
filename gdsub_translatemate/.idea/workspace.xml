@@ -20,17 +20,8 @@
       <file leaf-file-name="app.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="653">
-              <caret line="161" column="47" selection-start-line="161" selection-start-column="47" selection-end-line="161" selection-end-column="47" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/routes/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
-              <caret line="5" column="42" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="42" />
+            <state relative-caret-position="890">
+              <caret line="192" column="32" lean-forward="true" selection-start-line="192" selection-start-column="32" selection-end-line="192" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -38,8 +29,8 @@
       <file leaf-file-name="index.ejs" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/views/index.ejs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="28" column="19" lean-forward="true" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
+            <state relative-caret-position="242">
+              <caret line="110" column="44" selection-start-line="110" selection-start-column="44" selection-end-line="110" selection-end-column="44" />
             </state>
           </provider>
         </entry>
@@ -206,7 +197,7 @@
       <updated>1529203448691</updated>
       <workItem from="1529203450341" duration="9462000" />
       <workItem from="1529308870073" duration="144000" />
-      <workItem from="1529309864408" duration="10313000" />
+      <workItem from="1529309864408" duration="12048000" />
     </task>
     <task id="LOCAL-00001" summary="changed to default port to 8088">
       <created>1529309969000</created>
@@ -383,11 +374,25 @@
       <option name="project" value="LOCAL" />
       <updated>1529343963412</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="changed title">
+      <created>1529344182570</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1529344182570</updated>
+    </task>
+    <task id="LOCAL-00027" summary="added post request for submitting translation">
+      <created>1529503920369</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1529503920369</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="19919000" />
+    <option name="totallyTimeSpent" value="21654000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1680" height="1050" extended-state="0" />
@@ -436,7 +441,9 @@
     <MESSAGE value="test redirect in html" />
     <MESSAGE value="test previous and next" />
     <MESSAGE value="test url" />
-    <option name="LAST_COMMIT_MESSAGE" value="test url" />
+    <MESSAGE value="changed title" />
+    <MESSAGE value="added post request for submitting translation" />
+    <option name="LAST_COMMIT_MESSAGE" value="added post request for submitting translation" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app.js">
@@ -495,6 +502,9 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/public/assets/js/PIE.htc">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/routes/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
@@ -504,18 +514,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="653">
-          <caret line="161" column="47" selection-start-line="161" selection-start-column="47" selection-end-line="161" selection-end-column="47" />
+        <state relative-caret-position="890">
+          <caret line="192" column="32" lean-forward="true" selection-start-line="192" selection-start-column="32" selection-end-line="192" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/js/PIE.htc">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/views/index.ejs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="28" column="19" lean-forward="true" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
+        <state relative-caret-position="242">
+          <caret line="110" column="44" selection-start-line="110" selection-start-column="44" selection-end-line="110" selection-end-column="44" />
         </state>
       </provider>
     </entry>
