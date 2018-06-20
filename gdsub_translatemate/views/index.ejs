@@ -110,9 +110,13 @@
         var translator = document.getElementById('translator').value;
         console.log('translation:' + chinese + '  translator:' + translator);
 
-        var fd = new FormData();
-        fd.append('chinese', '测试POST中文翻译');
-        fd.append('translator', translator);
+        // var fd = new FormData();
+        // fd.append('chinese', '测试POST中文翻译');
+        // fd.append('translator', translator);
+
+        var data = {};
+        data.chinese = chinese;
+        data.translator = translator;
 
         var url = document.location.origin + '/translate/' + videoid + '/' + index;
         var xhr = new XMLHttpRequest();
@@ -122,8 +126,8 @@
                 console.log('response:' + xhr.responseText);
             }
         }
-        console.log('sending json data:' + JSON.stringify(fd));
-        xhr.send(JSON.stringify(fd));
+        console.log('sending json data:' + JSON.stringify(data));
+        xhr.send(JSON.stringify(data));
 
     }
 
