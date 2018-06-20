@@ -175,7 +175,7 @@ app.get('/translate/:videoid/:index', function(req, res){
 //submit translation
 app.post('/translate/:videoid/:index', function(req, res){
 
-    console.log('content:' + req.body);
+    console.log('content:' + JSON.stringify(req.body));
     var translation = JSON.parse(req.body);
 
     console.log('videoid:' + req.params.videoid + ' index:' + req.params.index);
