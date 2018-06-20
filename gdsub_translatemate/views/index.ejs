@@ -106,7 +106,7 @@
         var videoid = path[path.length - 2];
         console.log('index=' + index + '  video id=' + videoid);
 
-        var chinese = document.getElementById('chinese').innerText;
+        var chinese = document.getElementById('chinese').innerHTML;
         var translator = document.getElementById('translator').value;
         console.log('translation:' + chinese + '  translator:' + translator);
 
@@ -114,7 +114,7 @@
         fd.append('chinese', chinese);
         fd.append('translator', translator);
 
-        var url = document.location.origin + '/' + videoid + '/' + index;
+        var url = document.location.origin + '/translate/' + videoid + '/' + index;
         var xhr = new XMLHttpRequest();
         xhr.open('POST', url, true);
         xhr.onreadystatechange = function(){
