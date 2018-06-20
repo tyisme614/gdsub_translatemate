@@ -175,8 +175,9 @@ app.get('/translate/:videoid/:index', function(req, res){
 //submit translation
 app.post('/translate/:videoid/:index', function(req, res){
 
-    console.log('content:' + req.body.content);
-    var translation = JSON.parse(req.body.content);
+    console.log('content:' + req.body);
+    var translation = JSON.parse(req.body);
+
     console.log('videoid:' + req.params.videoid + ' index:' + req.params.index);
     var sheet = worksheets[req.params.videoid];
     if(typeof(sheet) != 'undefined' && sheet != null){
